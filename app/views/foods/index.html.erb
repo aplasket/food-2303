@@ -1,10 +1,12 @@
-<p>Number of results matching search: <%= @foods[:total_hit] %></>
+<p>Number of results matching search: <%= @foods[:total_hit] %></p></br>
 
 <% @foods[:foods].each do |food| %>
   <div id="food-<%= food.gtin_upc %>">
-    <p>GTIN/UPC: <%= food.gtin_upc %></p>
-    <p>Description: <%= food.description %></p>
-    <p> Brand Owner: <%= food.brand_owner %></p>
-    <p>Ingredients: <%= food.ingredients %></p>
-  </div>
+    <ul>
+      <li>GTIN/UPC: <%= food.gtin_upc %></li>
+      <li>Description: <%= food.description %></li>
+      <li> Brand Owner: <%= food.brand_owner %></li>
+      <li>Ingredients: <%= food.ingredients %></li>
+    </ul>
+  </div></br>
 <% end %>
