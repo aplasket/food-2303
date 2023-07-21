@@ -23,7 +23,7 @@ Make sure you take the time to read the documentation carefully.
 Notes:
   * Running the app and visiting the home page will show an error - THIS IS INTENTIONAL
 
-
+```
 As a user,
 When I visit "/"
 And I fill in the search form with "sweet potatoes"
@@ -39,3 +39,4 @@ And for each of the foods I should see:
 - The food's description
 - The food's Brand Owner
 - The food's ingredients
+```
