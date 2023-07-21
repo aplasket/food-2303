@@ -1,0 +1,10 @@
+<p>Number of results matching search: <%= @foods[:total_hit] %></>
+
+<% @foods[:foods].each do |food| %>
+  <div id="food-<%= food.gtin_upc %>">
+    <p>GTIN/UPC: <%= food.gtin_upc %></p>
+    <p>Description: <%= food.description %></p>
+    <p> Brand Owner: <%= food.brand_owner %></p>
+    <p>Ingredients: <%= food.ingredients %></p>
+  </div>
+<% end %>

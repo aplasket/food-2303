@@ -18,18 +18,24 @@ RSpec.describe "/foods", type: :feature do
       click_on "Search"
 
       expect(current_path).to eq(foods_path)
-      expect(page).to have_css(".food", count: 10)
+      expect(page).to have_content("GTIN/UPC:", count: 10)
 
-      within(first(".food")) do
-        expect(page).to have_css(".GTIN/UPC_code")
-        expect(page).to have_css(".description")
-        expect(page).to have_css(".brand_owner")
-        expect(page).to have_css(".ingredients")
+      within("#food-638882125773") do
+        expect(page).to have_content("GTIN/UPC: 638882125773")
+        expect(page).to have_content("Description: SWEET POTATOES")
+        expect(page).to have_content("Brand Owner: Stahlbush Island Farms, Inc.")
+        expect(page).to have_content("Ingredients: SWEET POTATOES.")
       end
     end
 
-    xit "displays total number of items returned" do
+    it "displays total number of items returned" do
+      visit root_path
 
+      fill_in :q, with: "sweet potatoes"
+      click_on "Search"
+
+      expect(current_path).to eq(foods_path)
+      expect(page).to have_content("Number of results matching search: 55579")
     end
   end
 end
