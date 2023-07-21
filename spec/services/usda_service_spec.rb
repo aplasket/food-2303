@@ -14,7 +14,7 @@ RSpec.describe UsdaService do
       expect(results[:totalHits]).to eq(55579)
 
       food = results[:foods].last
-      # binding.pry
+      
       expect(food).to have_key(:gtinUpc)
       expect(food[:gtinUpc]).to be_a(String)
       expect(food).to have_key(:description)
