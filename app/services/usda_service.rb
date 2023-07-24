@@ -10,5 +10,8 @@ class UsdaService
 
   def conn
     Faraday.new(url: "https://api.nal.usda.gov/", params: { api_key: ENV['USDA_KEY']})
+    # Faraday.new(url: "https://api.nal.usda.gov/") do |faraday|
+    #   faraday.params["api_key"] = ENV["USDA_KEY"]
+    # end
   end
 end
