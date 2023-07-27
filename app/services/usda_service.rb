@@ -12,6 +12,8 @@ class UsdaService
     Faraday.new(url: "https://api.nal.usda.gov/", params: { api_key: ENV['USDA_KEY']})
     # Faraday.new(url: "https://api.nal.usda.gov/") do |faraday|
     #   faraday.params["api_key"] = ENV["USDA_KEY"]
+    #     faraday.params["query"] = "sweet potatoes"
+        # faraday.params["pageSize"] = 10
     # end
   end
 end

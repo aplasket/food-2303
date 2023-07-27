@@ -1,6 +1,6 @@
-<p>Number of results matching search: <%= @foods[:total_hit] %></p></br>
+<p>Number of results matching search: <%= @facade.total_hits %></p></br>
 
-<% @foods[:foods].each do |food| %>
+<% @facade.foods.each do |food| %>
   <div id="food-<%= food.gtin_upc %>">
     <ul>
       <li>GTIN/UPC: <%= food.gtin_upc %></li>

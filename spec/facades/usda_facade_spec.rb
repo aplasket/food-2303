@@ -1,19 +1,11 @@
 require "rails_helper"
 
 RSpec.describe UsdaFacade do
-  describe "#search_food(params)" do
+  describe "#foods" do
     it "can find a food by search word and make food objects" do
-      results = UsdaFacade.new.search_food("sweet potatoes")
+      results = UsdaFacade.new("sweet potatoes").foods
 
-      expect(results).to be_a(Hash)
-      expect(results).to have_key(:foods)
-      expect(results[:foods]).to be_an(Array)
-      expect(results[:foods].count).to eq(10)
-      expect(results).to have_key(:total_hit)
-      expect(results[:total_hit]).to be_an(Integer)
-      expect(results[:total_hit]).to eq(55579)
-
-      food = results[:foods].last
+      food = results.last
 
       expect(food).to be_a(Food)
       expect(food.brand_owner).to be_a(String)
@@ -24,6 +16,14 @@ RSpec.describe UsdaFacade do
       expect(food.gtin_upc).to eq("638882125773")
       expect(food.ingredients).to be_a(String)
       expect(food.ingredients).to eq("SWEET POTATOES.")
+    end
+  end
+
+  describe "#total_hits" do
+    it "can return the total number of response for the key word" do
+      results = UsdaFacade.new("sweet potatoes").total_hits
+
+      expect(results).to eq(55579)
     end
   end
 end
